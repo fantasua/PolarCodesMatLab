@@ -1,0 +1,5 @@
+SCL-CRC不分层					polarcode_awgn_list_crc.m
+SCL-CRC分层 等分crc 保留一个crc校验通过路径	polarcode_awgn_list_crc_layer_single_path.m
+SCL-CRC分层 等分crc 保留多个crc校验通过路径	polarcode_awgn_list_crc_layer_multi_path.m
+SCL-CRC分层 不等分crc 保留一个crc校验通过路径	polarcode_awgn_list_crc_layer_new_single_path.m
+SCL-CRC分层 不等分crc 保留多个个crc校验通过路径	polarcode_awgn_list_crc_layer_new_multi_path.m
