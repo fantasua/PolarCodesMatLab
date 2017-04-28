@@ -1,14 +1,14 @@
 function [u_hat,free_index]=decoder(y,Z,k,b,var)
-%ÒëÂëº¯Êı
-%ÊäÈëyÎªĞÅµÀÊä³ö,ZÎªĞÅµÀBhattacharyya¾ØÕó,kÎªĞÅÏ¢³¤¶È,bÎªfrozenbitµÄÖµ,varÎªÔëÉù·½²î/¹¦ÂÊ
+%è¯‘ç å‡½æ•°
+%è¾“å…¥yä¸ºä¿¡é“è¾“å‡º,Zä¸ºä¿¡é“BhattacharyyaçŸ©é˜µ,kä¸ºä¿¡æ¯é•¿åº¦,bä¸ºfrozenbitçš„å€¼,varä¸ºå™ªå£°æ–¹å·®/åŠŸç‡
 
-N=length(y);                        %Âë³¤N
-[Zw,index]=sort(Z,'descend');       %ĞÅµÀBhattacharyya²ÎÊıÅÅĞò
-frozen_index=index(1:N-k);          %frozenbitÎ»ÖÃ
-free_index=index(N-k+1:N);          %ĞÅÏ¢±ÈÌØÎ»ÖÃ
+N=length(y);                        %ç é•¿N
+[Zw,index]=sort(Z,'descend');       %ä¿¡é“Bhattacharyyaå‚æ•°æ’åº
+frozen_index=index(1:N-k);          %frozenbitä½ç½®
+free_index=index(N-k+1:N);          %ä¿¡æ¯æ¯”ç‰¹ä½ç½®
 
-isfrozen(frozen_index)=1;           %frozenbit±ê¼Ç
-isfrozen(free_index)=0;             %ĞÅÏ¢±ÈÌØ
+isfrozen(frozen_index)=1;           %frozenbitæ ‡è®°
+isfrozen(free_index)=0;             %ä¿¡æ¯æ¯”ç‰¹
 
 
 u_hat(1:N)=0;
@@ -16,7 +16,7 @@ for i=1:N
     if isfrozen(i)==1;
         u_hat(i)=b;
     else
-        h=llr_new(y,u_hat,N,i,var);
+        h=llr(y,u_hat,N,i,var);
         if h>=1
             u_hat(i)=0;
         else
